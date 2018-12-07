@@ -1,0 +1,17 @@
+{
+  "name": "advent-of-code-2018",
+  "version": "1.0.0",
+  "description": "Advent of Code 2018",
+  "main": "index.js",
+  "repository": "https://github.com/Jsemi/advent-of-code-2018.git",
+  "author": "Joona Semi <joona.semi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "ramda": "^0.26.1"
+  }
+}

@@ -13,15 +13,13 @@ const differingPos = (id1, id2) => {
 }
 
 const secondReducer = (acc, id) => [acc[0], differingPos(acc[0], id), acc[2]]
+
 const firstReducer = (acc, id) =>
   R.reduceWhile(pred, secondReducer, [id, -1, acc[2]])(acc[2])
+
 const pred = acc => R.gt(0)(acc[1])
 
-const findLetters = ids =>
-  R.compose(
-    formatAnswer,
-    R.reduceWhile(pred, firstReducer, [0, -1, ids])
-  )(ids)
+const findLetters = ids => R.reduceWhile(pred, firstReducer, [0, -1, ids])(ids)
 
 const formatData = R.compose(
   R.map(R.trim),
@@ -30,6 +28,7 @@ const formatData = R.compose(
 )
 
 const findCommonLetters = R.compose(
+  formatAnswer,
   findLetters,
   formatData
 )
